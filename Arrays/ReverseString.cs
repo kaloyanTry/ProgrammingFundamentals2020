@@ -8,6 +8,7 @@ namespace ReverseStringArray
         static void Main(string[] args)
         {
             string[] stringArray = Console.ReadLine().Split(' ').ToArray();
+            
             string[] reversedArray = new string[stringArray.Length];
 
             for (int i = 0; i < stringArray.Length; i++)
