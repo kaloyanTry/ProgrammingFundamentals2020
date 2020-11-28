@@ -8,7 +8,6 @@ namespace _2.Lift
     {
         static void Main(string[] args)
         {
-            
             int tourists = int.Parse(Console.ReadLine());
             int[] wagon = Console.ReadLine().Split().Select(int.Parse).ToArray();
             int touristsOnWagon = 0;
