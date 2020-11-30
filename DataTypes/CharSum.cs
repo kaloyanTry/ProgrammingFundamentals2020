@@ -14,6 +14,7 @@ namespace SumOfChars
                 char charsLatin = char.Parse(Console.ReadLine());
                 sum += charsLatin;
             }
+            
             Console.WriteLine($"The sum equals: {sum}");
         }
     }
