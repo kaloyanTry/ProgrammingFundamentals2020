@@ -10,6 +10,7 @@ namespace StarEnigma
         static void Main(string[] args)
         {
             Regex decriptionRegex = new Regex(@"[SsTtAaRr]");
+            
             Regex pattern = new Regex(@"@([A-Z][a-z]+)[^@\-!:>]*:(\d+)[^@\-!:>]*!([A|D])![^@\-!:>]*->(\d+)");
 
             List<string> attackedPlanets = new List<string>();
@@ -20,9 +21,11 @@ namespace StarEnigma
             for (int i = 0; i < n; i++)
             {
                 string input = Console.ReadLine();
+                
                 int decryptionKey = decriptionRegex.Matches(input).Count;
 
                 string decrypted = string.Empty;
+                
                 for (int j = 0; j < input.Length; j++)
                 {
                     decrypted += (char)(input[j] - decryptionKey);
