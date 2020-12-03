@@ -17,7 +17,6 @@ namespace BalancedBrackets
 
                 char openBracket = '(';
                 char closedBracket = ')';
-               
 
                 if (inputLine.Contains(openBracket))
                 {
