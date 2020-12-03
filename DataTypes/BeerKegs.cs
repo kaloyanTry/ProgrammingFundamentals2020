@@ -14,8 +14,11 @@ namespace BeerKegs
             for (int i = 1; i <= n; i++)
             {
                 string modelOfKeg = Console.ReadLine();
+                
                 double radiusKeg = double.Parse(Console.ReadLine());
+                
                 int heghtKeg = int.Parse(Console.ReadLine());
+                
                 double volumeOfKeg = Math.PI * radiusKeg * radiusKeg * heghtKeg;
 
                 if (volumeOfKeg > volumeMax)
