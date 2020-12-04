@@ -27,6 +27,7 @@ namespace CardsGame
                     cardsSecondPlayer.Add(secondPlayerCard);
                     cardsSecondPlayer.Add(firstPlayerCard);
                 }
+                
                 cardsFirstPlayer.RemoveAt(0);
                 cardsSecondPlayer.RemoveAt(0);
             }
