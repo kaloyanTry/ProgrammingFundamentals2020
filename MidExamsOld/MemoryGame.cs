@@ -16,6 +16,7 @@ namespace _3.MemoryGame
             while (input != "end")
             {
                 string[] tokens = input.Split();
+                
                 int firstIndex = int.Parse(tokens[0]);
                 int secondIndex = int.Parse(tokens[1]);
                 countMoves++;
@@ -52,10 +53,12 @@ namespace _3.MemoryGame
                 {
                     elements.Insert(elements.Count / 2, $"-{countMoves}a");
                     elements.Insert(elements.Count / 2, $"-{countMoves}a");
+                    
                     Console.WriteLine("Invalid input! Adding additional elements to the board");
                 }
                 input = Console.ReadLine();
             }
+            
             Console.WriteLine("Sorry you lose :(");
             Console.WriteLine(String.Join(" ", elements));
         }
