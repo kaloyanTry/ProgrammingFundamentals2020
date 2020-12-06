@@ -13,7 +13,6 @@ namespace Courses
             while (true)
             {
                 string input = Console.ReadLine();
-
                 if (input == "end" )
                 {
                     break;
