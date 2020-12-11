@@ -47,6 +47,7 @@ namespace LastDigit
                     result = "zero";
                     break;
             }
+            
             Console.WriteLine(result);
         }
     }
