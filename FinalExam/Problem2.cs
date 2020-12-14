@@ -27,6 +27,7 @@ namespace Problem02
                     int firstInt = 0;
                     int secondInt = 0;
                     int thirdInt = 0;
+                    
                     for (int j = 0; j < first.Length; j++)
                     {
                         if (char.IsLetter(first[j]))
@@ -34,6 +35,7 @@ namespace Problem02
                             firstInt = (int)first[j];
                         }
                     }
+                    
                     for (int k = 0; k < second.Length; k++)
                     {
                         if (char.IsLetter(second[k]))
@@ -41,6 +43,7 @@ namespace Problem02
                             secondInt = (int)second[k];
                         }
                     }
+                    
                     for (int l = 0; l < third.Length; l++)
                     {
                         if (char.IsLetter(third[l]))
