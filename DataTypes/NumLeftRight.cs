@@ -19,17 +19,20 @@ namespace FromLeftToRight
                 long leftNum = long.Parse(splitNums[0]);
                 long rightNum = long.Parse(splitNums[1]);
                 long biggerNum = leftNum;
+                
                 if (rightNum > leftNum)
                 {
                     biggerNum = rightNum;
                 }
 
                 long sumOfDigits = 0;
+                
                 while (biggerNum != 0)
                 {
                     sumOfDigits += biggerNum % 10;
                     biggerNum /= 10;
                 }
+                
                 Console.WriteLine(Math.Abs(sumOfDigits));
             }
         }
