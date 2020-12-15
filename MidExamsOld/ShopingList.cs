@@ -52,6 +52,7 @@ namespace _2.ShopingList
                         break;
                 }
             }
+            
             Console.Write(string.Join(", ", initialList));
         }
     }
