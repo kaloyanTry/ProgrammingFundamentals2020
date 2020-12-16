@@ -34,6 +34,7 @@ namespace _3.EasterShoping
                                 shops.RemoveRange(0, numberOfShops);
                             }
                         }
+                        
                         if (commandDirection == "last")
                         { 
                             if (numberOfShops <= shops.Count)
@@ -65,6 +66,7 @@ namespace _3.EasterShoping
                         break;
                 }
             }
+            
             Console.WriteLine("Shops left:");
             Console.WriteLine(string.Join(" ", shops));
         }
