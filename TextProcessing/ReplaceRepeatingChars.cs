@@ -13,6 +13,7 @@ namespace ReplaceRepeatingChars
             char[] inputChars = input.ToCharArray();
 
             List<char> result = new List<char>();
+            
             result.Add(input[0]);
 
             foreach (var ch in inputChars)
