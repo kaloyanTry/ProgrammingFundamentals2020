@@ -12,6 +12,7 @@ namespace Problem01
             while (input != "Sign up")
             {
                 string[] commands = input.Split();
+                
                 if (input.Contains("Case"))
                 {
                     string cases = commands[1];
@@ -34,6 +35,7 @@ namespace Problem01
                     {
                         string subString = userName.Substring(startIndex, endIndex + 1 - startIndex);
                         string newString = string.Empty;
+                        
                         for (int i = subString.Length - 1; i >= 0; i--)
                         {
                             newString += subString[i];
@@ -46,6 +48,7 @@ namespace Problem01
                 {
                     string subText = commands[1];
                     int indexSubText = userName.IndexOf(subText);
+                    
                     if (userName.Contains(subText))
                     {
                         userName = userName.Remove(indexSubText, subText.Length);
