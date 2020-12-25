@@ -14,6 +14,7 @@ namespace Problem03
             int capacityMessages = int.Parse(Console.ReadLine());
 
             string input = Console.ReadLine();
+            
             while (input != "Statistics")
             {
                 string[] commands = input.Split("=");
@@ -67,6 +68,7 @@ namespace Problem03
                         users.Clear();
                     }
                 }
+                
                 input = Console.ReadLine();
             }
 
