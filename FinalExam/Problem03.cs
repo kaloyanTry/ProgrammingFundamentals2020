@@ -42,7 +42,7 @@ namespace Problem03
                         users[senderMsg].Sent += 1;
                         users[receiverMsg].Received += 1;
 
-                        if (users[senderMsg].Sent +users[senderMsg].Received == capacityMessages)
+                        if (users[senderMsg].Sent + users[senderMsg].Received == capacityMessages)
                         {
                             users.Remove(senderMsg);
                             Console.WriteLine($"{senderMsg} reached the capacity!");                       
@@ -86,6 +86,5 @@ namespace Problem03
     {
         public int Sent { get; set; }
         public int Received { get; set; }
-
     }
 }
