@@ -24,6 +24,7 @@ namespace Problem01
                     {
                         userName = userName.ToUpper();
                     }
+                    
                     Console.WriteLine(userName);
                 }
                 else if (input.Contains("Reverse"))
