@@ -16,6 +16,7 @@ namespace Advarticement
             for (int i = 0; i < n; i++)
             {
                 Random rnd = new Random();
+                
                 string message = phrases[rnd.Next(0, phrases.Length)];
                 string place = events[rnd.Next(0, events.Length)];
                 string author = authors[rnd.Next(0, authors.Length)];
