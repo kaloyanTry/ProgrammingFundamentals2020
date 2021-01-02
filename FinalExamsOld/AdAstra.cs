@@ -22,7 +22,9 @@ namespace AdAstra
             }
 
             int days = totalCalories / 2000;
+            
             Console.WriteLine($"You have food to last you for: {days} days!");
+            
             foreach (Match match in matches)
             {
                 Console.WriteLine($"Item: {match.Groups["item"].Value}, Best before: {match.Groups["date"].Value}, Nutrition: {match.Groups["calories"].Value}");
