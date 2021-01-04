@@ -9,6 +9,7 @@ namespace TeamworkProjects
         static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
+            
             List<Team> allTeams = new List<Team>();
 
             for (int i = 0; i < n; i++)
