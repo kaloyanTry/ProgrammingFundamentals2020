@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace TeamWork
@@ -21,15 +20,10 @@ namespace TeamWork
                 string currentCreator = inputForTeam[0];
                 string currentTeamNeme = inputForTeam[1];
 
-                // проверка дали тиймът вече не съществува. Съобщение, ако вече съществува
                 bool isTeamNameExist = allTeam
                     .Select(x => x.TeamName).Contains(currentTeamNeme);
 
-                bool isCreatorExist = allTeam
-                    .Any(x => x.CreatorName == currentCreator);
-
-                // проверка дали Инициаторът на Тийма вече не е създал тийм. 
-                // Съобщение, ако вече е създал
+                bool isCreatorExist = allTeam.Any(x => x.CreatorName == currentCreator);
 
                 if (isTeamNameExist == false && isCreatorExist == false)
                 {
@@ -63,11 +57,8 @@ namespace TeamWork
                 string fen = inputAssignment[0];
                 string ofFensTeam = inputAssignment[1];
 
-                // Първа проверка за това, че Тиймът съществува. 
-                // Единствената положителна проверка в алгоритъма на задачата.
                 bool isTeamExist = allTeam.Any(x => x.TeamName == ofFensTeam);
 
-                // Втора проверка за това дали записващия се не инициатор. Продължение на втората проверка -дали записващия се не се е записал вече в друг тийм.
                 bool isCreatorCheating = allTeam.Any(x => x.CreatorName == fen);
                 bool isAlreadyFen = allTeam.Any(x => x.Members.Contains(fen));
 
@@ -85,10 +76,8 @@ namespace TeamWork
                 {
                     Console.WriteLine("Member {0} cannot join team {1}!", fen, ofFensTeam);
                 }
-            } // END WHILE CIRCLE
+            } 
 
-            // Изписване на резултатите тиймовете с поне един член се подреждат 
-            //по азбучен ред и се изписват по дадения в задачата ред.
             List<Team> teamWithMember = allTeam
                 .Where(x => x.Members.Count > 0)
                 .OrderByDescending(x => x.Members.Count)
@@ -116,6 +105,7 @@ namespace TeamWork
             }
         }
     }
+    
     class Team
     {
         public Team(string name, string creatorName)
