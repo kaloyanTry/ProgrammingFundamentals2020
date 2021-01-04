@@ -16,23 +16,23 @@ namespace TeamworkProjects
                 string[] inputData = Console.ReadLine().Split('-');
 
                 string creator = inputData[0];
-                string teamNeme = inputData[1];
+                string teamName = inputData[1];
 
-                bool isTeamNameExist = allTeams.Select(x => x.TeamName).Contains(teamNeme);
+                bool isTeamNameExist = allTeams.Select(x => x.TeamName).Contains(teamName);
 
                 bool isCreatorExist = allTeams.Any(x => x.Creator == creator);
 
                 if (isTeamNameExist == false && isCreatorExist == false)
                 {
-                    Team currentTeam = new Team(teamNeme, creator);
+                    Team currentTeam = new Team(teamName, creator);
 
                     allTeams.Add(currentTeam);
 
-                    Console.WriteLine("Team {0} has been created by {1}!", teamNeme, creator);
+                    Console.WriteLine($"Team {teamName} has been created by {creator}!");
                 }
                 else if (isTeamNameExist)
                 {
-                    Console.WriteLine($"Team {teamNeme} was already created!");
+                    Console.WriteLine($"Team {teamName} was already created!");
                 }
                 else if (isCreatorExist)
                 {
@@ -46,27 +46,27 @@ namespace TeamworkProjects
             {
                 string[] matesData = inputMates.Split("->");
 
-                string fen = matesData[0];
-                string ofFensTeam = matesData[1];
+                string member = matesData[0];
+                string ofMemberTeam = matesData[1];
 
-                bool isTeamExist = allTeams.Any(x => x.TeamName == ofFensTeam);
+                bool isTeamExist = allTeams.Any(x => x.TeamName == ofMemberTeam);
 
-                bool isCreatorCheating = allTeams.Any(x => x.Creator == fen);
-                bool isAlreadyFen = allTeams.Any(x => x.Members.Contains(fen));
+                bool isCreatorCheating = allTeams.Any(x => x.Creator == member);
+                bool isAlreadyFen = allTeams.Any(x => x.Members.Contains(member));
 
                 if (isTeamExist && isCreatorCheating == false && isAlreadyFen == false)
                 {
-                    int indexOfTeam = allTeams.FindIndex(x => x.TeamName == ofFensTeam);
+                    int indexOfTeam = allTeams.FindIndex(x => x.TeamName == ofMemberTeam);
 
-                    allTeams[indexOfTeam].Members.Add(fen);
+                    allTeams[indexOfTeam].Members.Add(member);
                 }
                 else if (isTeamExist == false)
                 {
-                    Console.WriteLine("Team {0} does not exist!", ofFensTeam);
+                    Console.WriteLine($"Team {ofMemberTeam} does not exist!");
                 }
                 else if (isAlreadyFen || isCreatorCheating)
                 {
-                    Console.WriteLine("Member {0} cannot join team {1}!", fen, ofFensTeam);
+                    Console.WriteLine($"Member {member} cannot join team {ofMemberTeam}!");
                 }
 
                 inputMates = Console.ReadLine();
