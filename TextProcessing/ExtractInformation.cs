@@ -19,6 +19,7 @@ namespace ExtractPersonInformation
                 int lengthOfAge = input.IndexOf("*") - startIndexOfAge;
 
                 string name = input.Substring(startIndexOfName, lengthOfName);
+                
                 int age = int.Parse(input.Substring(startIndexOfAge, lengthOfAge));
 
                 Console.WriteLine($"{name} is {age} years old.");
