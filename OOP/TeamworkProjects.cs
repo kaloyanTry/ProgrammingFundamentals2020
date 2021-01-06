@@ -1,33 +1,29 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TeamworkProjects
+namespace TrainingClassesObjects
 {
-    class TeamworkProjects
+    class TrainingTeamWork
     {
         static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
-            
-            List<Team> allTeams = new List<Team>();
+            List<Teams> teams = new List<Teams>();
 
             for (int i = 0; i < n; i++)
             {
-                string[] inputData = Console.ReadLine().Split('-');
+                string[] inputTeams = Console.ReadLine().Split('-');
+                string creator = inputTeams[0];
+                string teamName = inputTeams[1];
 
-                string creator = inputData[0];
-                string teamName = inputData[1];
-
-                bool isTeamNameExist = allTeams.Select(x => x.TeamName).Contains(teamName);
-
-                bool isCreatorExist = allTeams.Any(x => x.Creator == creator);
+                bool isTeamNameExist = teams.Select(t => t.TeamName).Contains(teamName);
+                bool isCreatorExist = teams.Any(c => c.Creator == creator);
 
                 if (isTeamNameExist == false && isCreatorExist == false)
                 {
-                    Team currentTeam = new Team(teamName, creator);
-
-                    allTeams.Add(currentTeam);
+                    Teams team = new Teams(teamName, creator);
+                    teams.Add(team);
 
                     Console.WriteLine($"Team {teamName} has been created by {creator}!");
                 }
@@ -41,41 +37,40 @@ namespace TeamworkProjects
                 }
             }
 
-            string inputMates = Console.ReadLine();
-
-            while (inputMates != "end of assignment")
+            string inputJoin = Console.ReadLine();
+            while (inputJoin != "end of assignment")
             {
-                string[] matesData = inputMates.Split("->");
+                string[] inputMembers = inputJoin.Split("->");
+                string member = inputMembers[0];
+                string memberTeam = inputMembers[1];
 
-                string member = matesData[0];
-                string ofMemberTeam = matesData[1];
+                bool isTeamExist = teams.Any(x => x.TeamName == memberTeam);
 
-                bool isTeamExist = allTeams.Any(x => x.TeamName == ofMemberTeam);
+                bool isAlreadyCreator = teams.Any(x => x.Creator == member);
 
-                bool isCreatorCheating = allTeams.Any(x => x.Creator == member);
-                bool isAlreadyFen = allTeams.Any(x => x.Members.Contains(member));
+                bool isAlreadyMember = teams.Any(x => x.Members.Contains(member));
 
-                if (isTeamExist && isCreatorCheating == false && isAlreadyFen == false)
+                if (isTeamExist && isAlreadyCreator == false && isAlreadyMember == false)
                 {
-                    int indexOfTeam = allTeams.FindIndex(x => x.TeamName == ofMemberTeam);
+                    int indexOfTeam = teams.FindIndex(t => t.TeamName == memberTeam);
 
-                    allTeams[indexOfTeam].Members.Add(member);
+                    teams[indexOfTeam].Members.Add(member);
                 }
                 else if (isTeamExist == false)
                 {
-                    Console.WriteLine($"Team {ofMemberTeam} does not exist!");
+                    Console.WriteLine($"Team {memberTeam} does not exist!");
                 }
-                else if (isAlreadyFen || isCreatorCheating)
+                else if (isAlreadyMember || isAlreadyCreator)
                 {
-                    Console.WriteLine($"Member {member} cannot join team {ofMemberTeam}!");
+                    Console.WriteLine($"Member {member} cannot join team {memberTeam}!");
                 }
 
-                inputMates = Console.ReadLine();
+                inputJoin = Console.ReadLine();
             }
 
-            List<Team> teamWithMembers = allTeams.Where(t => t.Members.Count > 0).OrderByDescending(t => t.Members.Count).ThenBy(t => t.TeamName).ToList();
+            List<Teams> teamWithMembers = teams.Where(t => t.Members.Count > 0).OrderByDescending(t => t.Members.Count).ThenBy(t => t.TeamName).ToList();
 
-            List<Team> teamNotValid = allTeams.Where(t => t.Members.Count == 0).OrderBy(t => t.TeamName).ToList();
+            List<Teams> teamWithOutMembers = teams.Where(m => m.Members.Count == 0).OrderBy(t => t.TeamName).ToList();
 
             foreach (var team in teamWithMembers)
             {
@@ -87,21 +82,20 @@ namespace TeamworkProjects
             }
 
             Console.WriteLine("Teams to disband:");
-
-            foreach (var team in teamNotValid)
+            foreach (var team in teamWithOutMembers)
             {
                 Console.WriteLine(team.TeamName);
             }
         }
     }
 
-    class Team
+    class Teams
     {
         public string TeamName { get; set; }
-        public string Creator { get; set; }  
+        public string Creator { get; set; }
         public List<string> Members { get; set; }
 
-        public Team(string teamName, string creator)
+        public Teams(string teamName, string creator)
         {
             TeamName = teamName;
             Creator = creator;
