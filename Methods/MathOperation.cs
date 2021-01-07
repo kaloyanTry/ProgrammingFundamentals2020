@@ -12,13 +12,9 @@ namespace MathOperation
 
             double result = Calculate(firstNum, numsOperator, secondNum);
             Console.WriteLine(result);
-
-
         }
 
-        static double Calculate(int firstNum, 
-            string numsOperator, 
-            int secondNum)
+        static double Calculate(int firstNum, string numsOperator, int secondNum)
         {
             double result = 0.0D;
             switch (numsOperator)
