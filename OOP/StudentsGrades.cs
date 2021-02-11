@@ -9,6 +9,7 @@ namespace Students4
         static void Main(string[] args)
         {
             List<Student> students = new List<Student>();
+            
             int n = int.Parse(Console.ReadLine());
 
             for (int i = 0; i < n; i++)
