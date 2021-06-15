@@ -11,7 +11,6 @@ namespace CardsGame
             List<int> cardsFirstPlayer = Console.ReadLine().Split().Select(int.Parse).ToList();
             List<int> cardsSecondPlayer = Console.ReadLine().Split().Select(int.Parse).ToList();
 
-
             while (cardsFirstPlayer.Count != 0 && cardsSecondPlayer.Count != 0)
             {
                 int firstPlayerCard = cardsFirstPlayer[0];
