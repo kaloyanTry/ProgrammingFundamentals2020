@@ -14,6 +14,7 @@ namespace OddOccurences
             foreach (string word in words)
             {
                 string wordInLowerCase = word.ToLower();
+                
                 if (counts.ContainsKey(wordInLowerCase))
                 {
                     counts[wordInLowerCase]++;
