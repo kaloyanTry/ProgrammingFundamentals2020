@@ -30,6 +30,7 @@ namespace ListManipulation
                         numbers.Insert(int.Parse(command[2]), int.Parse(command[1]));
                         break;
                 }
+                
                 command = Console.ReadLine().Split();
             }
 
